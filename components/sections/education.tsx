@@ -1,52 +1,69 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { GraduationCap, Award } from 'lucide-react'
-import { SectionHeading } from '@/components/section-heading'
-import { StaggerGroup, staggerItem } from '@/components/motion-primitives'
+import { GraduationCap, Award, CheckCircle2 } from 'lucide-react'
 import { education, certifications } from '@/lib/data'
 
 export function Education() {
   return (
-    <section id="education" className="mx-auto max-w-5xl px-6 py-24 md:py-32">
-      <div className="grid gap-16 lg:grid-cols-2 lg:gap-12">
-        <div>
-          <SectionHeading index="04" title="Education" />
-          <ol className="relative ml-1 border-l border-border pl-8">
+    <section id="education" className="mx-auto max-w-6xl px-6 py-28 md:py-36">
+      {/* Editorial Header */}
+      <div className="border-b border-[#E8E4DD] pb-6">
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#555C6D]">
+          <span className="text-[#2D5BFF] font-semibold">04</span>
+          <span>//</span>
+          <span>ACADEMIC BACKGROUND</span>
+        </div>
+        <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-[#0B0F19] sm:text-5xl md:text-6xl">
+          EDUCATION &amp; <span className="font-serif-italic font-normal text-[#2D5BFF]">CREDENTIALS.</span>
+        </h2>
+      </div>
+
+      <div className="mt-14 grid gap-14 lg:grid-cols-12">
+        {/* Left Column: Education Timeline */}
+        <div className="lg:col-span-7">
+          <ol className="relative ml-2 border-l border-[#E8E4DD] pl-8 space-y-12">
             {education.map((item, i) => (
               <motion.li
                 key={`${item.school}-${item.period}`}
                 initial={{ opacity: 0, x: -12 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="relative pb-10 last:pb-0"
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="relative"
               >
-                <span className="absolute -left-[41px] grid size-7 place-items-center rounded-full border border-border bg-card text-accent">
-                  <GraduationCap className="size-3.5" />
+                {/* Timeline Marker */}
+                <span className="absolute -left-[41px] top-0 grid size-6 place-items-center rounded-full border border-[#E8E4DD] bg-white text-[#2D5BFF] shadow-2xs">
+                  <span className="size-2 rounded-full bg-[#2D5BFF]" />
                 </span>
-                <span className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
-                  {item.period}
-                </span>
-                <h3 className="mt-2 text-lg font-semibold tracking-tight">
+
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#2D5BFF]">
+                    {item.period}
+                  </span>
+                  <span className="rounded-full bg-[#FAF9F6] border border-[#E8E4DD] px-3 py-0.5 font-mono text-xs font-bold text-[#0B0F19]">
+                    {item.detail}
+                  </span>
+                </div>
+
+                <h3 className="mt-2 text-xl font-bold tracking-tight text-[#0B0F19]">
                   {item.school}
                 </h3>
-                <p className="mt-1 text-pretty text-muted-foreground">
+                <p className="mt-1 text-sm font-medium text-[#555C6D]">
                   {item.degree}
                 </p>
-                <p className="mt-2 text-sm font-medium text-foreground/80">
-                  {item.detail}
-                </p>
-                {item.coursework.length > 0 && (
+
+                {/* Coursework only if present (B.Tech entry) */}
+                {item.coursework && item.coursework.length > 0 && (
                   <div className="mt-4">
-                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-[#555C6D]">
                       {item.courseworkLabel}
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-2">
+                    </span>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
                       {item.coursework.map((course) => (
                         <span
                           key={course}
-                          className="rounded-full border border-border bg-card/40 px-3 py-1 text-xs text-foreground/75"
+                          className="rounded-md border border-[#E8E4DD] bg-white px-2.5 py-1 text-xs font-medium text-[#0B0F19] shadow-2xs"
                         >
                           {course}
                         </span>
@@ -59,27 +76,34 @@ export function Education() {
           </ol>
         </div>
 
-        <div>
-          <SectionHeading index="05" title="Certifications" />
-          <StaggerGroup className="grid gap-3">
+        {/* Right Column: Certifications */}
+        <div className="lg:col-span-5 flex flex-col gap-4">
+          <div className="border-b border-[#E8E4DD] pb-3">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#0B0F19]">
+              Verified Certifications
+            </span>
+          </div>
+
+          <div className="space-y-3.5">
             {certifications.map((cert) => (
-              <motion.div
+              <div
                 key={cert.title}
-                variants={staggerItem}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card/40 p-5 backdrop-blur transition-colors hover:border-accent/40"
+                className="group flex items-start gap-4 rounded-2xl border border-[#E8E4DD] bg-white p-5 shadow-2xs transition-all hover:border-[#2D5BFF]/40 hover:shadow-xs"
               >
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent">
+                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-blue-50 text-[#2D5BFF]">
                   <Award className="size-5" />
                 </span>
                 <div>
-                  <h3 className="font-medium leading-snug">{cert.title}</h3>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
+                  <h4 className="font-bold text-sm text-[#0B0F19] leading-snug">
+                    {cert.title}
+                  </h4>
+                  <p className="mt-1 font-mono text-xs text-[#555C6D]">
                     {cert.issuer}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </StaggerGroup>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google'
 import './globals.css'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
@@ -8,26 +8,32 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
+const instrumentSerif = Instrument_Serif({
+  variable: '--font-serif',
+  weight: '400',
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+})
 
 export const metadata: Metadata = {
-  title: 'Pragati Singh — Full Stack Developer',
+  title: 'Pragati Singh — Software Engineer & Full Stack Developer',
   description:
-    'Pragati Singh — Computer Science Engineering student, Full Stack Developer, and Problem Solver based in Delhi, India. Building scalable web applications and solving algorithmic challenges.',
-  generator: 'v0.app',
+    'Pragati Singh — Final-year B.Tech CSE student, Software Engineer, and Problem Solver. 450+ DSA problems solved on LeetCode.',
   keywords: [
     'Pragati Singh',
-    'Full Stack Developer',
     'Software Engineer',
+    'Full Stack Developer',
+    'Computer Science',
     'Next.js',
     'React',
     'Portfolio',
-    'Computer Science',
+    'LeetCode',
   ],
   authors: [{ name: 'Pragati Singh' }],
   openGraph: {
-    title: 'Pragati Singh — Full Stack Developer',
+    title: 'Pragati Singh — Software Engineer & Full Stack Developer',
     description:
-      'CS Engineering student & Full Stack Developer building scalable web applications.',
+      'Final-year B.Tech CSE student seeking software engineering opportunities. 450+ DSA problems solved on LeetCode.',
     type: 'website',
   },
   icons: {
@@ -49,8 +55,8 @@ export const metadata: Metadata = {
   },
 }
 
-export const viewport = {
-  themeColor: '#0a0a0c',
+export const viewport: Viewport = {
+  themeColor: '#FAF9F6',
 }
 
 export default function RootLayout({
@@ -61,9 +67,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} bg-background`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} bg-background text-foreground selection:bg-blue-100 selection:text-blue-900 scroll-smooth`}
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased bg-background text-foreground min-h-screen">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

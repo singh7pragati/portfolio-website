@@ -2,17 +2,10 @@
 
 import { motion } from 'motion/react'
 import { Mail, ArrowUpRight } from 'lucide-react'
-import { SectionHeading } from '@/components/section-heading'
 import { GithubIcon, LinkedinIcon, LeetcodeIcon } from '@/components/brand-icons'
 import { profile } from '@/lib/data'
 
 const channels = [
-  {
-    label: 'Email',
-    value: profile.email,
-    href: `mailto:${profile.email}`,
-    icon: Mail,
-  },
   {
     label: 'LinkedIn',
     value: 'in/pragati-singh-80a201293',
@@ -31,69 +24,119 @@ const channels = [
     href: profile.links.leetcode,
     icon: LeetcodeIcon,
   },
+  {
+    label: 'Email',
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    icon: Mail,
+  },
 ]
 
 export function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-5xl px-6 py-24 md:py-32">
-      <SectionHeading index="06" title="Get in touch" />
-
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-card/40 p-8 backdrop-blur md:p-12">
-        <div className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-accent/10 blur-3xl" />
-        <div className="relative">
-          <p className="max-w-lg text-balance text-2xl font-semibold leading-snug tracking-tight md:text-3xl">
-            I&apos;m open to internships, collaborations, and interesting
-            engineering problems.
-          </p>
-          <a
-            href={`mailto:${profile.email}`}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-          >
-            <Mail className="size-4" />
-            Say hello
-          </a>
-
-          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
-            {channels.map((c, i) => {
-              const Icon = c.icon
-              const isExternal = c.href.startsWith('http')
-              return (
-                <motion.a
-                  key={c.label}
-                  href={c.href}
-                  target={isExternal ? '_blank' : undefined}
-                  rel={isExternal ? 'noopener noreferrer' : undefined}
-                  aria-label={`${c.label}: ${c.value}`}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.99 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="group relative flex cursor-pointer items-center justify-between gap-4 bg-card/60 p-5 backdrop-blur transition-all duration-300 hover:z-10 hover:bg-secondary/60 hover:shadow-[0_0_0_1px_var(--accent),0_8px_30px_-12px_var(--accent)]"
-                >
-                  <span className="flex items-center gap-3">
-                    <span className="grid size-9 place-items-center rounded-lg border border-border bg-background/50 text-accent transition-colors duration-300 group-hover:border-accent/40 group-hover:bg-accent/10">
-                      <Icon className="size-4" />
-                    </span>
-                    <span className="text-sm">
-                      <span className="block text-xs uppercase tracking-wide text-muted-foreground">
-                        {c.label}
-                      </span>
-                      <span className="font-medium">{c.value}</span>
-                    </span>
-                  </span>
-                  <ArrowUpRight className="size-4 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
-                </motion.a>
-              )
-            })}
-          </div>
+    <section id="contact" className="mx-auto max-w-6xl px-6 pt-28 pb-16 md:pt-36 md:pb-20">
+      {/* Editorial Header */}
+      <div className="border-b border-[#E8E4DD] pb-6">
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-[#555C6D]">
+          <span className="text-[#2D5BFF] font-semibold">05</span>
+          <span>//</span>
+          <span>GET IN TOUCH</span>
         </div>
+        <h2 className="mt-3 text-4xl font-extrabold tracking-tight text-[#0B0F19] sm:text-5xl md:text-6xl leading-[1.05]">
+          LET&apos;S BUILD SOMETHING <br />
+          <span className="font-serif-italic font-normal text-[#2D5BFF]">MEANINGFUL.</span>
+        </h2>
+        <p className="mt-4 max-w-xl text-base text-[#555C6D]">
+          I am actively seeking software engineering opportunities and collaborations. Reach out directly or connect through any of my professional channels.
+        </p>
       </div>
 
-      <footer className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
-        <p>© {new Date().getFullYear()} Pragati Singh. All rights reserved.</p>
-        <p className="font-mono text-xs">Built with Next.js &amp; Tailwind CSS</p>
+      {/* Main Email Callout */}
+      <div className="mt-12">
+        <a
+          href={`mailto:${profile.email}`}
+          className="group relative block overflow-hidden rounded-3xl border border-[#0B0F19] bg-[#0B0F19] p-8 text-[#FAF9F6] shadow-sm transition-all duration-300 hover:bg-[#2D5BFF] hover:shadow-xl sm:p-12"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest text-[#FAF9F6]/70">
+                Direct Communication
+              </span>
+              <p className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl text-[#FAF9F6]">
+                {profile.email}
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-wider text-[#FAF9F6] backdrop-blur-xs transition-colors group-hover:bg-white group-hover:text-[#2D5BFF]">
+              <span>Send Message</span>
+              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </div>
+          </div>
+        </a>
+      </div>
+
+      {/* Channels Grid */}
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {channels.map((c) => {
+          const Icon = c.icon
+          const isExternal = c.href.startsWith('http')
+          return (
+            <motion.a
+              key={c.label}
+              href={c.href}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
+              aria-label={`${c.label}: ${c.value}`}
+              whileHover={{ y: -2 }}
+              className="group flex flex-col justify-between rounded-2xl border border-[#E8E4DD] bg-white p-5 shadow-2xs transition-all hover:border-[#2D5BFF]/40 hover:shadow-xs"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#555C6D]">
+                  {c.label}
+                </span>
+                <ArrowUpRight className="size-4 text-[#555C6D] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[#2D5BFF]" />
+              </div>
+              <div className="mt-6 flex items-center gap-2.5">
+                <Icon className="size-4 text-[#0B0F19]" />
+                <span className="font-semibold text-xs text-[#0B0F19] truncate">
+                  {c.value}
+                </span>
+              </div>
+            </motion.a>
+          )
+        })}
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-20 flex flex-col items-center justify-between gap-4 border-t border-[#E8E4DD] pt-8 text-xs font-mono uppercase tracking-wider text-[#555C6D] sm:flex-row">
+        <p>© {new Date().getFullYear()} PRAGATI SINGH. ALL RIGHTS RESERVED.</p>
+        <div className="flex items-center gap-5">
+          <a
+            href={profile.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-[#0B0F19]"
+          >
+            GitHub
+          </a>
+          <span>•</span>
+          <a
+            href={profile.links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-[#2D5BFF]"
+          >
+            LinkedIn
+          </a>
+          <span>•</span>
+          <a
+            href={profile.links.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-amber-600"
+          >
+            LeetCode
+          </a>
+        </div>
       </footer>
     </section>
   )

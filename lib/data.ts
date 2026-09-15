@@ -1,11 +1,10 @@
 export const profile = {
   name: 'Pragati Singh',
-  roles: ['Full Stack Developer', 'Problem Solver', 'CS Engineering Student'],
-  tagline: 'Computer Science Engineering Student | Full Stack Developer | Problem Solver',
+  roles: ['Software Engineer', 'Full Stack Developer', 'Problem Solver'],
+  tagline: 'Final-Year B.Tech CSE Student | Full Stack Developer | Problem Solver',
   location: 'Delhi, India',
-  available: true,
   about:
-    'I am a Computer Science Engineering student passionate about Full Stack Development and Problem Solving. I enjoy building scalable web applications, solving DSA challenges, and continuously learning modern technologies. My goal is to create impactful software products while strengthening my engineering skills.',
+    'Final-year B.Tech CSE student seeking software engineering opportunities to build real-world products and solve meaningful problems. Passionate about full stack web development, algorithmic problem solving, and building scalable software solutions.',
   email: 'singhpragati@gmail.com',
   links: {
     github: 'https://github.com/singh7pragati',
@@ -25,59 +24,57 @@ export const skillGroups = [
   },
   {
     title: 'Backend',
-    items: ['REST APIs', 'FastAPI', 'Flask'],
+    items: ['Node.js', 'Express.js', 'REST APIs'],
+  },
+  {
+    title: 'Databases',
+    items: ['MongoDB', 'MySQL'],
   },
   {
     title: 'Tools',
-    items: ['Git', 'GitHub', 'VS Code', 'Linux', 'Figma', 'Wireshark'],
-  },
-  {
-    title: 'Core CS',
-    items: [
-      'Data Structures & Algorithms',
-      'DBMS',
-      'Operating Systems',
-      'Computer Networks',
-      'OOPs',
-    ],
+    items: ['Git', 'GitHub', 'VS Code', 'Vercel'],
   },
 ]
 
 export const projects = [
   {
-    name: 'Resume Analyzer',
+    name: 'JobQuest',
     description:
-      'An ATS-friendly resume analyzer that compares resumes with job descriptions using skill matching and keyword extraction.',
+      'An intelligent resume analyzer that compares resumes with job descriptions using keyword and skill matching to identify skill gaps, calculate a match score, and provide personalized recommendations.',
     features: [
-      'Skill extraction',
-      'Keyword matching',
-      'Missing skill detection',
-      'Match percentage calculation',
-      'Personalized recommendations',
+      'Resume Analysis',
+      'Skill Extraction',
+      'Keyword Matching',
+      'Skill Gap Detection',
+      'Match Score',
+      'Personalized Recommendations',
     ],
-    tech: ['React', 'FastAPI', 'Flask', 'spaCy', 'RapidFuzz'],
-    github: 'https://github.com',
-    demo: 'https://example.com',
+    tech: ['Python', 'FastAPI', 'Flask', 'React', 'spaCy', 'RapidFuzz'],
+    github: 'https://github.com/singh7pragati/jobQuest',
+    demo: 'https://job-quest-chi.vercel.app/',
   },
   {
-    name: 'TaskFlow',
+    name: 'CareerTrack',
     description:
-      'A modern full-stack task management platform with authentication and dynamic CRUD operations.',
+      'A full-stack job and internship tracking platform that helps users organize applications, track recruitment progress, manage goals, and monitor their career journey through a centralized dashboard.',
     features: [
-      'User authentication',
-      'Task tracking dashboard',
-      'Task categorization',
+      'Application Tracking',
+      'Recruitment Pipeline',
+      'Dashboard Analytics',
+      'Goal Management',
+      'Status Tracking',
+      'CRUD Operations',
       'Responsive UI',
-      'Workflow management',
+      'User Authentication',
     ],
-    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'NextAuth.js'],
-    github: 'https://github.com',
-    demo: 'https://example.com',
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MongoDB', 'Node.js'],
+    github: 'https://github.com/singh7pragati/careerTrack',
+    demo: 'https://career-track-one.vercel.app',
   },
 ]
 
 export const stats = [
-  { value: 300, suffix: '+', label: 'DSA Problems Solved' },
+  { value: 450, suffix: '+', label: 'DSA Problems Solved on LeetCode' },
   { value: 15, suffix: '+', label: 'Technologies' },
   { value: 2, suffix: '', label: 'Featured Projects' },
   { value: 3, suffix: '', label: 'Certifications' },
@@ -103,8 +100,8 @@ export const education = [
     school: 'Kendriya Vidyalaya Kanpur',
     degree: 'Senior Secondary Education (Class XII)',
     detail: 'Percentage: 91.8%',
-    courseworkLabel: 'Subjects',
-    coursework: ['Physics', 'Chemistry', 'Mathematics', 'Computer Science'],
+    courseworkLabel: '',
+    coursework: [],
   },
   {
     period: '2020 — 2021',
@@ -132,7 +129,7 @@ export const certifications = [
 ]
 
 export const achievements = [
-  'Solved 300+ DSA problems across LeetCode and GeeksforGeeks',
-  'Strong foundation in problem solving and algorithms',
-  'Passionate about software engineering and continuous learning',
+  '450+ DSA problems solved on LeetCode',
+  'Strong foundation in problem solving, algorithms, and core CS fundamentals',
+  'Passionate about software engineering and building impactful products',
 ]
